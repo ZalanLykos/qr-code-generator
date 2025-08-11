@@ -1,78 +1,44 @@
-# QR Studio — Zalan Lykos
+# QR Code Generator — QR Studio
 
-**Fancy, modern QR Code Generator** — built as my first public project in this series of small but useful tools.  
-This is a **fully standalone HTML file** that you can drop on GitHub Pages (or anywhere) and it just works.
+This is a **fancy, modern QR code generator** I made as one of my quick projects.  
+It’s just a single HTML file — open it and it works.  
+No installs, no backend, no “npm install” headaches.
 
 ---
 
 ## 💡 What it does
-- Generates QR codes instantly for **links or any text**.
-- Lets you **customize size, colors, and format** (PNG or SVG).
-- Works directly in the browser — **no installs**.
-- **Download** or **copy the link** to your QR instantly.
-- Polished, responsive, modern UI — looks great on desktop and mobile.
+- You type in a link or text → pick size, colors, and format (PNG or SVG) → get your QR instantly.  
+- You can **download it**, **copy the link**, or **open it in a new tab**.  
+- Looks clean with gradients, glass effect, and my personal stamp at the bottom:  
+  *made by zalan lykos* + link to my main site → [zalanlykos.github.io/web](https://zalanlykos.github.io/web).
 
 ---
 
-## 🛠️ How I built it
-- HTML, CSS, JavaScript (vanilla, no frameworks).
-- Uses the free [goQR / QRServer API](https://goqr.me/api/) to generate the QR codes.  
-  No need to host my own backend for this one — I just call their API and get the image back.
-- Designed the layout with a **glassmorphic + gradient** style so it doesn’t look boring.
-- Added my **personal stamp** at the bottom with my website link:  
-  [`zalanlykos.github.io/web`](https://zalanlykos.github.io/web)
+## 🛠 How I built it
+- **Vanilla HTML, CSS, JS** — no frameworks.
+- Uses the free [QRServer API](https://goqr.me/api/) for generating the QR code images.  
+  (I’ll do my own QR algorithm in another project, but this was about speed and polish.)
+- Designed the UI so it doesn’t look like a 2005 QR tool.
 
 ---
 
 ## 🚀 Why I made it
-I wanted something quick but valuable to:
-1. Practice **deploying on GitHub Pages**.
-2. Experiment with **customizing an external API** for my own UI.
-3. Have a simple, free, good-looking QR generator I can actually use.
+- Wanted a quick project I could deploy to **GitHub Pages** and actually use.  
+- Practiced integrating an external API into a static site.  
+- Added customization features to make it better than the usual plain QR generators.
 
 ---
 
-## 🌐 Live Demo
-You can try it here (hosted on GitHub Pages):  
-[**QR Studio — Live**](https://zalanlykos.github.io/qr-studio)  
-*(Replace with your actual repo link once deployed)*
+## 🌐 Live demo
+[**QR Studio on GitHub Pages**](https://yourusername.github.io/qr-studio)  
+*(Replace with your actual link)*
 
 ---
 
-## 📸 Screenshots
-*(Add a screenshot of the app here once live)*
+## 📦 How to run
+Download the `index.html` file and open it in your browser. That’s it.
 
 ---
 
-## ⚡ Features
-- 🔹 Real-time preview
-- 🔹 Adjustable size (128px – 1200px)
-- 🔹 Foreground & background color pickers
-- 🔹 PNG or SVG format
-- 🔹 Instant download
-- 🔹 Copy QR link
-- 🔹 Works on any device
-
----
-
-## 🧠 What I learned
-- How to integrate a **free public API** directly into a static site.
-- How to make a **single HTML file** with everything in one place.
-- How to make something **Google-indexable** with GitHub Pages.
-- Small UI/UX tweaks that make a tool feel **premium**.
-
----
-
-## 📦 How to run locally
-1. Download `index.html`.
-2. Double-click to open in your browser.
-3. That’s it. No setup. No npm. No server.
-
----
-
-## 📜 License
-MIT License — free to use, modify, and share.
-
----
 
 ### Made with ❤️ by Zalan Lykos

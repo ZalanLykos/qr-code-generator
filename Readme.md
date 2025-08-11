@@ -1,5 +1,5 @@
 # QR Code Generator — QR Studio
-
+https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.aptika.com%2Fqrcode%2F%3Fsrsltid%3DAfmBOoqDiSaKp9TyogxjFk29Sk8TbNc7H7B2YIAVM-n3jknWitMBCYDg&psig=AOvVaw392DlkUz18HzbDZ4s6D3jH&ust=1754962276464000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCIjNq5XOgY8DFQAAAAAdAAAAABAE
 This is a **modern QR code generator** I made as one of my quick projects.  
 
 ---

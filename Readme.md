@@ -1,8 +1,6 @@
 # QR Code Generator — QR Studio
 
-This is a **fancy, modern QR code generator** I made as one of my quick projects.  
-It’s just a single HTML file — open it and it works.  
-No installs, no backend, no “npm install” headaches.
+This is a **modern QR code generator** I made as one of my quick projects.  
 
 ---
 

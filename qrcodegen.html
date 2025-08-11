@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>QR Studio — Zalan Lykos</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Social sharing preview -->
+  <meta property="og:title" content="Fancy QR Code Generator - Zalan Lykos">
+  <meta property="og:description" content="A cool and modern QR code generator made by Zalan Lykos.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zalanlykos.github.io/web/">
+  <meta name="description" content="Create beautiful, customizable QR codes — fast. Made by Zalan Lykos." />
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#7c5cff;
+      --glass: rgba(255,255,255,0.03);
+      --radius:16px;
+      --glass-2: rgba(255,255,255,0.02);
+    }
+    *{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;}
+    html,body{height:100%;margin:0;background:
+      radial-gradient(1000px 400px at 10% 10%, rgba(124,92,255,0.12), transparent 8%),
+      linear-gradient(180deg,#071022 0%, var(--bg) 100%); color:#e6eef6;}
+    .wrap{max-width:980px;margin:48px auto;padding:28px;border-radius:20px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);box-shadow:0 10px 30px rgba(2,6,23,0.6);}
+    .header{display:flex;gap:16px;align-items:center;justify-content:space-between;margin-bottom:20px}
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{
+      width:56px;height:56px;border-radius:10px;
+      background:linear-gradient(135deg,var(--accent),#3dd6b8);
+      display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:20px;box-shadow:0 6px 20px rgba(124,92,255,0.18);
+    }
+    h1{font-size:20px;margin:0}
+    p.lead{margin:0;color:var(--muted);font-size:13px}
+    .grid{display:grid;grid-template-columns:1fr 380px;gap:20px;margin-top:14px}
+    .card{background:var(--card);border-radius:14px;padding:16px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.02)}
+    label{font-size:13px;color:var(--muted);display:block;margin-bottom:8px}
+    input[type="text"], select, textarea {width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;font-size:14px}
+    .row{display:flex;gap:12px;align-items:center}
+    .small{font-size:13px;color:var(--muted)}
+    .controls{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+    button{background:linear-gradient(90deg,var(--accent),#3dd6b8);border:none;color:#051125;padding:10px 14px;border-radius:10px;font-weight:600;cursor:pointer;box-shadow:0 8px 24px rgba(124,92,255,0.12)}
+    button.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);box-shadow:none}
+    .preview{display:flex;flex-direction:column;align-items:center;gap:12px;padding:18px;border-radius:12px;background:linear-gradient(180deg,var(--glass),var(--glass-2));min-height:360px;justify-content:center}
+    .qrwrap{background:#fff;padding:12px;border-radius:12px}
+    .meta{display:flex;gap:8px;align-items:center;justify-content:center;color:var(--muted);font-size:13px}
+    footer{margin-top:18px;display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:13px}
+    .stamp{font-weight:600;font-size:13px;color:#cbd7ff}
+    a.smalllink{color:var(--muted);text-decoration:none;font-size:13px}
+    .hint{font-size:12px;color:var(--muted);margin-top:8px}
+    /* responsive */
+    @media (max-width:900px){.grid{grid-template-columns:1fr;}.preview{min-height:260px}}
+  </style>
+</head>
+<body>
+  <main class="wrap" role="main">
+    <div class="header">
+      <div class="brand">
+        <div class="logo">ZL</div>
+        <div>
+          <h1>QR Studio</h1>
+          <p class="lead">Fast, polished QR codes — customize, preview, and download instantly.</p>
+        </div>
+      </div>
+      <div style="text-align:right">
+        <div class="small">Made for GitHub Pages • Free</div>
+        
+      </div>
+    </div>
+
+    <div class="grid">
+      <section class="card" aria-labelledby="build-title">
+        <h2 id="build-title" style="margin:0 0 10px 0">Build your QR</h2>
+
+        <label for="data">Link / Text</label>
+        <input id="data" type="text" placeholder="https://example.com or any text" value="https://example.com or any text" />
+
+        <div style="display:flex;gap:12px;margin-top:12px">
+          <div style="flex:1">
+            <label for="size">Size (px)</label>
+            <input id="size" type="range" min="128" max="1200" value="360" oninput="sizeOut.textContent=this.value" />
+            <div class="row" style="justify-content:space-between;margin-top:6px">
+              <div class="small">128</div>
+              <div class="small">360</div>
+              <div class="small">1200</div>
+            </div>
+          </div>
+          <div style="width:120px">
+            <label for="format">Format</label>
+            <select id="format" style="color:black; background-color:lightblue;">
+              <option value="png">PNG</option>
+              <option value="svg">SVG</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:12px;margin-top:12px;align-items:center">
+          <div style="flex:1">
+            <label for="fg">Foreground</label>
+            <input id="fg" type="color" value="#111827" />
+          </div>
+          <div style="width:160px">
+            <label for="bg">Background</label>
+            <input id="bg" type="color" value="#ffffff" />
+          </div>
+        </div>
+
+        <div class="controls">
+          <button id="gen">Generate</button>
+          <button class="ghost" id="copyLink">Copy image URL</button>
+          <button class="ghost" id="download">Download</button>
+          <button class="ghost" id="reset">Reset</button>
+        </div>
+
+        <div class="hint">Pro tip: include UTM or shortcodes in your URLs to track scans. Use PNG for raster, SVG for crisp scaling.</div>
+      </section>
+
+      <aside class="card preview" aria-live="polite" aria-atomic="true">
+        <div class="qrwrap" id="previewArea" style="display:inline-block">
+          <img id="qrImg" alt="QR preview" width="360" height="360" style="display:block" />
+        </div>
+
+        <div class="meta">
+          <div>Size: <strong id="sizeOut">360</strong>px</div>
+          <div style="width:1px;height:14px;background:rgba(255,255,255,0.04);margin:0 8px"></div>
+          <div id="dataPreview" class="small" style="max-width:320px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"></div>
+        </div>
+
+        <div style="margin-top:6px">
+          <button id="openNew" class="ghost">Open image in new tab</button>
+        </div>
+
+        <footer style="width:100%;margin-top:12px">
+          <div class="stamp">Made by Zalan Lykos</div>
+          <a class="smalllink" href="https://zalanlykos.github.io/web" target="_blank" rel="noopener">zalanlykos.github.io/web ↗</a>
+        </footer>
+      </aside>
+    </div>
+  </main>
+
+  <script>
+    // Elements
+    const dataIn = document.getElementById('data');
+    const sizeIn = document.getElementById('size');
+    const fg = document.getElementById('fg');
+    const bg = document.getElementById('bg');
+    const genBtn = document.getElementById('gen');
+    const qrImg = document.getElementById('qrImg');
+    const sizeOut = document.getElementById('sizeOut');
+    const dataPreview = document.getElementById('dataPreview');
+    const format = document.getElementById('format');
+    const copyLink = document.getElementById('copyLink');
+    const downloadBtn = document.getElementById('download');
+    const openNew = document.getElementById('openNew');
+    const resetBtn = document.getElementById('reset');
+
+    // helpers
+    function encodeParam(s){ return encodeURIComponent(s); }
+
+    function makeApiUrl(text,size,foreground,background,fmt){
+      // Using goqr / qrserver public API; returns PNG or SVG depending on 'format'
+      // Note: for SVG we request format=svg and for PNG we request size parameter.
+      if(fmt === 'svg'){
+        // qrserver supports format=svg
+        return `https://api.qrserver.com/v1/create-qr-code/?data=${encodeParam(text)}&size=${size}x${size}&color=${foreground.replace('#','')}&bgcolor=${background.replace('#','')}&format=svg`;
+      } else {
+        return `https://api.qrserver.com/v1/create-qr-code/?data=${encodeParam(text)}&size=${size}x${size}&color=${foreground.replace('#','')}&bgcolor=${background.replace('#','')}&format=png`;
+      }
+    }
+
+    function updatePreview(url){
+      qrImg.src = url;
+      qrImg.width = Number(sizeIn.value);
+      qrImg.height = Number(sizeIn.value);
+      dataPreview.textContent = dataIn.value || '(empty)';
+      sizeOut.textContent = sizeIn.value;
+    }
+
+    // Generate default on load
+    function generate(){
+      const text = dataIn.value.trim();
+      if(!text){
+        alert('Enter a link or text to encode.');
+        return;
+      }
+      const s = sizeIn.value;
+      const fgcol = fg.value;
+      const bgcol = bg.value;
+      const fmt = format.value;
+      const url = makeApiUrl(text,s,fgcol,bgcol,fmt);
+      updatePreview(url);
+      // remember last url on element dataset
+      qrImg.dataset.url = url;
+      qrImg.dataset.text = text;
+    }
+
+    genBtn.addEventListener('click', generate);
+
+    // copy image URL
+    copyLink.addEventListener('click', async ()=>{
+      const url = qrImg.dataset.url;
+      if(!url){ alert('Generate a QR first.'); return; }
+      try{
+        await navigator.clipboard.writeText(url);
+        copyLink.textContent = 'Copied!';
+        setTimeout(()=>copyLink.textContent='Copy image URL',1200);
+      }catch(e){
+        alert('Copy failed. Open image and copy manually.');
+      }
+    });
+
+    // download
+    downloadBtn.addEventListener('click', async ()=>{
+      const url = qrImg.dataset.url;
+      if(!url){ alert('Generate a QR first.'); return; }
+      // fetch the image and save with anchor download
+      try{
+        const res = await fetch(url);
+        if(!res.ok) throw new Error('fetch failed');
+        const blob = await res.blob();
+        const a = document.createElement('a');
+        const ext = format.value === 'svg' ? 'svg' : 'png';
+        a.href = URL.createObjectURL(blob);
+        const safeName = (qrImg.dataset.text || 'qr').replace(/[^a-z0-9_\-\.]/ig,'_').slice(0,40);
+        a.download = `${safeName}.${ext}`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      }catch(err){
+        // fallback: open in new tab for manual save
+        window.open(url, '_blank');
+      }
+    });
+
+    // open in new tab
+    openNew.addEventListener('click', ()=>{
+      const url = qrImg.dataset.url;
+      if(!url){ alert('Generate a QR first.'); return; }
+      window.open(url, '_blank');
+    });
+
+    // reset
+    resetBtn.addEventListener('click', ()=>{
+      dataIn.value = 'https://zalanlykos.github.io/web';
+      sizeIn.value = 360;
+      fg.value = '#111827';
+      bg.value = '#ffffff';
+      format.value = 'png';
+      generate();
+    });
+
+    // live small updates
+    sizeIn.addEventListener('input', ()=>{
+      sizeOut.textContent = sizeIn.value;
+    });
+
+    // keyboard: enter to generate
+    dataIn.addEventListener('keydown', (e)=>{ if(e.key === 'Enter'){ generate(); } });
+
+    // first render
+    window.addEventListener('load', ()=>{ generate(); });
+
+  </script>
+</body>
+</html>

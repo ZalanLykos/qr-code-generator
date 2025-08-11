@@ -1,5 +1,6 @@
 # QR Code Generator — QR Studio
 <img width="300" height="158" alt="qr-code-generator-fb_jpg" src="https://github.com/user-attachments/assets/851fc8ef-1f6c-43a2-be1d-ecd944fefae6" />
+
 This is a **modern QR code generator** I made as one of my quick projects.  
 
 ---

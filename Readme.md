@@ -10,7 +10,7 @@ No installs, no backend, no “npm install” headaches.
 - You type in a link or text → pick size, colors, and format (PNG or SVG) → get your QR instantly.  
 - You can **download it**, **copy the link**, or **open it in a new tab**.  
 - Looks clean with gradients, glass effect, and my personal stamp at the bottom:  
-  *made by zalan lykos* + link to my main site → [zalanlykos.github.io/web](https://zalanlykos.github.io/web).
+  *made by zalan lykos* + link to my main site → [ZalanLykos](https://zalanlykos.github.io/web).
 
 ---
 
@@ -29,14 +29,9 @@ No installs, no backend, no “npm install” headaches.
 
 ---
 
-## 🌐 Live demo
-[**QR Studio on GitHub Pages**](https://yourusername.github.io/qr-studio)  
-*(Replace with your actual link)*
-
----
-
-## 📦 How to run
-Download the `index.html` file and open it in your browser. That’s it.
+## 📦 Usage
+Here an online link for using it: [Qr Code Generator](https://zalanlykos.github.io/qr-code-generator)
+or just download it :)
 
 ---
 

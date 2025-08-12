@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>QR Studio — Zalan Lykos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Social sharing preview -->
+  <meta property="og:title" content="Fancy QR Code Generator - Zalan Lykos">
+  <meta property="og:description" content="A cool and modern QR code generator made by Zalan Lykos.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zalanlykos.github.io/web/">
+  <meta name="description" content="Create beautiful, customizable QR codes — fast. Made by Zalan Lykos." />
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap" role="main">
+    <div class="header">
+      <div class="brand">
+        <div class="logo">ZL</div>
+        <div>
+          <h1>QR Studio</h1>
+          <p class="lead">Fast, polished QR codes — customize, preview, and download instantly.</p>
+        </div>
+      </div>
+      <div style="text-align:right">
+        <div class="small">Made for GitHub Pages • Free</div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <section class="card" aria-labelledby="build-title">
+        <h2 id="build-title" style="margin:0 0 10px 0">Build your QR</h2>
+
+        <label for="data">Link / Text</label>
+        <input id="data" type="text" placeholder="https://example.com or any text" value="https://example.com or any text" />
+
+        <div style="display:flex;gap:12px;margin-top:12px">
+          <div style="flex:1">
+            <label for="size">Size (px)</label>
+            <input id="size" type="range" min="128" max="1200" value="360" oninput="sizeOut.textContent=this.value" />
+            <div class="row" style="justify-content:space-between;margin-top:6px">
+              <div class="small">128</div>
+              <div class="small">360</div>
+              <div class="small">1200</div>
+            </div>
+          </div>
+          <div style="width:120px">
+            <label for="format">Format</label>
+            <select id="format" style="color:black; background-color:lightblue;">
+              <option value="png">PNG</option>
+              <option value="svg">SVG</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:12px;margin-top:12px;align-items:center">
+          <div style="flex:1">
+            <label for="fg">Foreground</label>
+            <input id="fg" type="color" value="#111827" />
+          </div>
+          <div style="width:160px">
+            <label for="bg">Background</label>
+            <input id="bg" type="color" value="#ffffff" />
+          </div>
+        </div>
+
+        <div class="controls">
+          <button id="gen">Generate</button>
+          <button class="ghost" id="copyLink">Copy image URL</button>
+          <button class="ghost" id="download">Download</button>
+          <button class="ghost" id="reset">Reset</button>
+        </div>
+
+        <div class="hint">Pro tip: include UTM or shortcodes in your URLs to track scans. Use PNG for raster, SVG for crisp scaling.</div>
+      </section>
+
+      <aside class="card preview" aria-live="polite" aria-atomic="true">
+        <div class="qrwrap" id="previewArea" style="display:inline-block">
+          <img id="qrImg" alt="QR preview" width="360" height="360" style="display:block" />
+        </div>
+
+        <div class="meta">
+          <div>Size: <strong id="sizeOut">360</strong>px</div>
+          <div style="width:1px;height:14px;background:rgba(255,255,255,0.04);margin:0 8px"></div>
+          <div id="dataPreview" class="small" style="max-width:320px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"></div>
+        </div>
+
+        <div style="margin-top:6px">
+          <button id="openNew" class="ghost">Open image in new tab</button>
+        </div>
+
+        <footer style="width:100%;margin-top:12px">
+          <div class="stamp">Made by Zalan Lykos</div>
+          <a class="smalllink" href="https://zalanlykos.github.io/web" target="_blank" rel="noopener">zalanlykos.github.io/web ↗</a>
+        </footer>
+      </aside>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
